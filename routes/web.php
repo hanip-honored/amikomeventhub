@@ -11,6 +11,8 @@ use App\Http\Controllers\Admin\TransactionController;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/events/{event}', [\App\Http\Controllers\EventController::class, 'show'])->name('events.show');
 Route::get('/checkout', [EventController::class, 'checkout'])->name('checkout');
+Route::get('/checkout/{event}', [App\Http\Controllers\CheckoutController::class, 'create'])->name('checkout.create');
+Route::post('/checkout/{event}', [App\Http\Controllers\CheckoutController::class, 'store'])->name('checkout.store');
 Route::get('/my-ticket', [EventController::class, 'ticket'])->name('ticket');
 
 Route::get('/login', function () {
