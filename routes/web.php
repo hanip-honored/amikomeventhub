@@ -19,6 +19,8 @@ Route::get('/login', function () {
     return redirect()->route('admin.login');
 })->name('login');
 
+Route::get('/payment/{order_id}', [\App\Http\Controllers\CheckoutController::class, 'payment'])->name('checkout.payment');
+Route::get('/success/{order_id}', [\App\Http\Controllers\CheckoutController::class, 'success'])->name('checkout.success');
 
 //Rute Admin Area
 // Grouping untuk URL berawalan /admin
