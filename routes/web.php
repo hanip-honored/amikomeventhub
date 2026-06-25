@@ -15,6 +15,8 @@ Route::get('/checkout/{event}', [App\Http\Controllers\CheckoutController::class,
 Route::post('/checkout/{event}', [App\Http\Controllers\CheckoutController::class, 'store'])->name('checkout.store');
 Route::get('/my-ticket', [EventController::class, 'ticket'])->name('ticket');
 
+Route::post('/midtrans/callback', [\App\Http\Controllers\MidtransWebhookController::class, 'handle']);
+
 Route::get('/login', function () {
     return redirect()->route('admin.login');
 })->name('login');
